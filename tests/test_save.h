@@ -35,3 +35,12 @@ TEST(save, positive){
     }
 }
 
+TEST(save, error){
+    text txt = create_text();
+    load (txt, INPUTDIR "test.txt");
+
+    testing::internal::CaptureStdout();
+    save(txt, INPUTDIR);
+    EXPECT_STREQ(testing::internal::GetCapturedStdout().c_str(), "The file " INPUTDIR " cannot be opened\n");
+}
+
