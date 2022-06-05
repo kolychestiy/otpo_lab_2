@@ -31,6 +31,8 @@ void split(text txt)
     nd->previous = cur;
     cur->next = nd;
 
+    txt->length++;
+
     strncpy(nd->contents, (cur->contents + txt->cursor->position), MAXLINE);
 
 // делать в конце, так как иначе не сможем скопировать корректно
